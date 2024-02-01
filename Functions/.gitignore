@@ -1,0 +1,5 @@
+*.exe
+output/
+/output/
+/test-code/
+test/
