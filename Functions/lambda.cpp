@@ -25,3 +25,8 @@ int main()
         std::cout << num << " ";
     }
 }
+
+// [] it means that you will not provide anything to lambda. 
+// [&] means you have some references to deal with. 
+//  [=] it is used to make the copy. 
+// [this] is used to the enclosing class. 
