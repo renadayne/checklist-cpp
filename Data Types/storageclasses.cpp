@@ -28,7 +28,12 @@ void StorageClasses() {
 int main() {
     // faster than load var from RAM
     // address does not exist in RAM, address in register but can't get it out
-    register int c; // default value: garbage value, memory location: register in CPU or RAM
+    register int c = 5; // default value: garbage value, memory location: register in CPU or RAM
+    // register keyword write address direct to register instead of RAM, if you forced to acess address there'll be no different than not using register 
+    std::cout << &c << std::endl; // can compile but have warning
+    int *p = &c;
+    *p = 6;
+    std::cout << p << std::endl;
     auto a = 8; // auto declare datatype of var, in this case -> int
     std::cout << typeid(a).name() << std::endl; // result: i -> int
     for(int i = 0; i < 2; i++) {

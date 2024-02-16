@@ -29,5 +29,4 @@ int main() {
     A b(a); // copy cons
     A c = std::move(a); // move cons
     A d = static_cast<A&&>(a); // move cons - not rcm to use 
-    return 0;
 }
