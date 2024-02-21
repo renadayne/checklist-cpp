@@ -1,0 +1,4 @@
+/*
+when you protected inheritance, the highest acess of Base in Derived class is now "protected"
+-> Base pointer point to new Derived can't create constructor -> error
+*/
