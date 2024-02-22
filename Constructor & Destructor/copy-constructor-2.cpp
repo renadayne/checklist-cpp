@@ -39,3 +39,8 @@ int main() {
     
     return 0;
 }
+
+/*
+Data in processData: 1 2 3 4 5 100
+Data after process: 1 2 3 4 5
+*/
