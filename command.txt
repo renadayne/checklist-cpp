@@ -1,0 +1,12 @@
+* run exe in terminal
+g++ filename.cpp -o filename
+./filename
+
+* gen file preprocessor
+g++ -E filename.cpp -o filename.i
+
+* gen file object
+g++ -c filename.cpp -o filename.o
+
+* gen file asm
+g++ -S filename.cpp -o filename.s
