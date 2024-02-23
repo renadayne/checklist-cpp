@@ -3,6 +3,7 @@
 class sizeOfClass {
     char a; // 1
     int b; // 4
+<<<<<<< HEAD
     static int i; // data segment - don't need class data alignment
     // simply, static belongs to class, different between entire var belongs to object 
     short c; // 2
@@ -16,6 +17,10 @@ class sizeOfClass {
         void methodFunction(int med, std::string str) {
             std::cout << "Method Function Call" << std::endl;
         };
+=======
+    short c; // 2
+    double d; // 8 - highest
+>>>>>>> 6522993c0baff650bb6e40f4f51cb962df73eab7
 };
 
 /*
