@@ -10,3 +10,6 @@ g++ -c filename.cpp -o filename.o
 
 * gen file asm
 g++ -S filename.cpp -o filename.s
+
+flag optimize: -O1
+ex: g++ -S filename.cpp -o -O1 filename.s
