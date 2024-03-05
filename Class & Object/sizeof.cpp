@@ -3,7 +3,6 @@
 class sizeOfClass {
     char a; // 1
     int b; // 4
-<<<<<<< HEAD
     static int i; // data segment - don't need class data alignment
     // simply, static belongs to class, different between entire var belongs to object 
     short c; // 2
@@ -14,15 +13,11 @@ class sizeOfClass {
     Similar w static in this case, method belongs to class -> not belongs to object
     -> don't need class data alignment
     */
-        void methodFunction(int med, std::string str) {
+        void methodFunction(int med, std::string str) { // Methods don't have data member -> not increase size of object
             std::cout << "Method Function Call" << std::endl;
         };
-=======
-    short c; // 2
-    double d; // 8 - highest
->>>>>>> 6522993c0baff650bb6e40f4f51cb962df73eab7
 };
-
+// static keyword not mean save in data segment. ex: static function in text segment
 /*
 In memory:
     char(1 byte) padding(3 byte) int(4 byte) 
