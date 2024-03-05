@@ -23,6 +23,7 @@ void StorageClasses() {
     std::cout << "The value of i is: " << i << std::endl;
     i++;
 }
+// static keyword not mean save in data segment. ex: static function in text segment
 
 
 int main() {
