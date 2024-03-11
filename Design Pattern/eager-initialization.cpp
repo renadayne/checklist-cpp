@@ -19,7 +19,7 @@ class Singleton {
             std::cout << "Method do sth" << std::endl;
         }
 };
-
+// Instance is initialization when program is run
 Singleton Singleton::_instance; // define static global var
 
 int main() {
