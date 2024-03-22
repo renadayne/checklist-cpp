@@ -1,117 +1,79 @@
-#include <iostream>
+#ifndef LINKEDLIST_CPP
+#define LINKEDLIST_CPP
+
 #include "linked-list.hpp"
 
-Node* createNode(int init_data)  {
-    Node* node = new Node;
-    node->data = init_data;
-    node->next = NULL;
-    return node;
-}
+void LinkedList::addTail(int data) {
+    Node* node = new Node(data); // Create new node
 
-void CreateList(LinkedList& l) {
-    l.head = NULL;
-    l.tail = NULL;
-}
-
-void addHead(LinkedList& l, Node* node) {
-    if(l.head == NULL) {
-        l.head = node;
-        l.tail = node;
+    // if list is empty, assign head = node
+    if(head == NULL) {
+        head = node; 
+        return;
     }
-    else {
-        node->next = l.head;
-        l.head = node;
+    
+    Node* temp = head;
+    while(temp->next != NULL) {
+        temp = temp->next;
     }
+
+    temp->next = node;
 }
 
-void addTail(LinkedList& l, Node* node) {
-    if(l.head == NULL) {
-        l.head = node;
-        l.tail = node;
+void LinkedList::printList() {
+    Node* temp = head;
+    
+    if(head == NULL) {
+        std::cout << "Empty List" << std::endl;
+        return;
     }
-    else {
-        l.tail->next = node;
-        l.tail = node;
+
+    while(temp != NULL) {
+        std::cout << temp->data << " ";
+        temp = temp->next;
     }
+    std::cout << std::endl;
 }
 
-
-void insertAfterQ(LinkedList &l, Node* p, Node* q) {
-    if(q != NULL) {
-        p->next = q->next
-        q->next = p;
-        if(q == l.tail) l.tail = p;
+void LinkedList::deleteHead() {
+    if(head == NULL) {
+        std::cout << "Empty List" << std::endl;
+        return;
     }
-    else addHead(l, p);
+
+    Node* temp = head;
+    head = head->next;
+    delete temp;
 }
 
-int removeHead(LinkedList& l, int& x) {
-    if(l.head != NULL) {
-        Node* node = l.head;
-        x = node->data;
-        l.head = node->next;
-        delete node;
-        if(l.head == NULL) l.tail = NULL;
-        return 1;
+void LinkedList::deleteNode(int nodePosition) {
+    if(head == NULL) {
+        std::cout << "Empty List" << std::endl;
+        return;
     }
-    return 0;
-}
 
-int removeAfterQ(LinkedList& l, Node* q, int& x) {
-    if(q != NULL) {
-        Node* p = q->next;
-        if(p ! = NULL) {
-            if(l.tail == p) l.tail = q;
-            q->next = p->next;
-            x = p->data;
-            delete p;
-            return 1;
-        }
-        return 0;
-    }
-    return 0;
-}
-
-Node* GetNode(LinkedList& l, int index) {
-    Node* node;
-    int i = 0;
-    while(node != NULL && i != index) {
-        node = node->next;
-        i++;
-    } 
-    if(node != NULL && i == index) return node;
-    return NULL;
-}
-
-int Length(LinkedList l) {
     int count = 0;
-    Node* node;
-    while(node != NULL) {
+    Node* temp = head, *prev = NULL;
+    if(nodePosition < 1) {
+        std::cout << "Invalid Position" << std::endl;
+        return;
+    }
+
+    if(nodePosition == 1) {
+        deleteHead();
+        return;
+    }
+
+    while(count != nodePosition - 1) {
+        prev = temp;
+        temp = temp->next;
         count++;
-        node = node->next;
     }
-    return count;
+
+    prev->next = temp->next;
+    delete temp;
 }
 
-int destroyList(LinkedList& l) {
-    int x;
-    Node* node = l.head;
-    while(node != NULL) {
-        removeHead(l, x);
-        node = l.head;
-    }
-    l.tail = NULL;
-}
 
-void printList(LinkedList l) {
-    if(l.head != NULL) {
-        Node* node = l.head;
-        while(node != NULL) {
-            std::cout << node->data << " ";
-            node = node->next;
-        }
-        std::cout << std::endl;
-    }
-}
-
+#endif
 

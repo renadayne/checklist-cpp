@@ -1,25 +1,41 @@
-#ifndef linkedlist_hpp
-#define linkedlist_hpp
+#ifndef LINKEDLIST_HPP
+#define LINKEDLIST_HPP
 
-struct Node {
-    int data;
-    Node* next;
+#include <iostream>
+
+class Node {
+    public:
+        int data;
+        Node* next;
+
+        Node() {
+            data = 0;
+            next = NULL;
+        }
+
+        Node(int data) {
+            this->data = data;
+            this->next = NULL;
+        }
 };
 
-struct LinkedList {
+class LinkedList {
     Node* head;
     Node* tail;
+
+    public:
+        LinkedList() {
+            head = NULL;
+        }
+
+        void addTail(int);
+        void printList();
+        void deleteHead();
+        void deleteNode(int); 
 };
 
-Node* createNode(int init_data);
-void CreateList(LinkedList& l);
-void addHead(LinkedList& l, Node* node);
-void addTail(LinkedList& l, Node* node);
-void insertAfterQ(LinkedList &l, Node* p, Node* q);
-int removeHead(LinkedList&l, int& x);
-int removeAfterQ(LinkedList& l, Node* q, int& x);
-Node* GetNode(LinkedList& l, int index);
-void printList(LinkedList l);
-int DestroyList(LinkedList& l, int& x);
 #include "linked-list.cpp"
 #endif
+
+
+
