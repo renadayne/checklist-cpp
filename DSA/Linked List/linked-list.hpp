@@ -28,10 +28,16 @@ class LinkedList {
             head = NULL;
         }
 
+        void addHead(int);
         void addTail(int);
+        void insertNode(int, int);
         void printList();
         void deleteHead();
-        void deleteNode(int); 
+        void deleteTail();
+        void deleteNode(int);
+        void clearList(); 
+        int getListLength();
+        void getNodeValue(int);
 };
 
 #include "linked-list.cpp"
