@@ -21,7 +21,6 @@ class Node {
 
 class LinkedList {
     Node* head;
-    Node* tail;
 
     public:
         LinkedList() {
