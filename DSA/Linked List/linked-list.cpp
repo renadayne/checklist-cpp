@@ -5,14 +5,14 @@
 
 void LinkedList::addHead(int data) {
     Node* node = new Node(data);
-
     if(head == NULL) {
         head = node;
+        length++;
         return;
     }
-
     node->next = head;
     head = node;
+    length++;
 }
 
 void LinkedList::addTail(int data) {
@@ -20,7 +20,8 @@ void LinkedList::addTail(int data) {
 
     // if list is empty, assign head = node
     if(head == NULL) {
-        head = node; 
+        head = node;
+        length++; 
         return;
     }
     
@@ -30,6 +31,7 @@ void LinkedList::addTail(int data) {
     }
 
     temp->next = node;
+    length++;
 }
 
 void LinkedList::insertNode(int data, int nodePosition) {
@@ -38,6 +40,7 @@ void LinkedList::insertNode(int data, int nodePosition) {
     int count = 0;
 
     if(nodePosition == 1) {
+        length++;
         node->next = head;
         head = node;
         return;
@@ -55,6 +58,7 @@ void LinkedList::insertNode(int data, int nodePosition) {
 
     node->next = temp;
     prev->next = node;
+    length++;
 }
 
 void LinkedList::printList() {
@@ -81,6 +85,7 @@ void LinkedList::deleteHead() {
     Node* temp = head;
     head = head->next;
     delete temp;
+    length--;
 }
 
 
@@ -96,6 +101,7 @@ void LinkedList::deleteTail() {
         temp = temp->next;
     }
     prev->next = NULL;
+    length--;
 }
 
 void LinkedList::deleteNode(int nodePosition) {
@@ -128,6 +134,7 @@ void LinkedList::deleteNode(int nodePosition) {
 
     prev->next = temp->next;
     delete temp;
+    length--;
 }
 
 void LinkedList::clearList() {
@@ -137,18 +144,7 @@ void LinkedList::clearList() {
 }
 
 int LinkedList::getListLength() {
-    Node* temp = head;
-    int count = 0;
-    if(head == NULL) {
-        return count;
-    }
-
-    while(temp != NULL) {
-        count++;
-        temp = temp->next;
-    }
-
-    return count;
+    return length;
 }
 
 void LinkedList::getNodeValue(int nodePosition) {

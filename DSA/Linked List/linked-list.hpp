@@ -21,6 +21,7 @@ class Node {
 
 class LinkedList {
     Node* head;
+    int length = 0;
 
     public:
         LinkedList() {
